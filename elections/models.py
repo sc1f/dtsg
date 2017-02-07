@@ -1,9 +1,13 @@
 from django.db import models
+from django.contrib import admin
 
 class Election(models.Model):
     name = models.CharField(default="Election",max_length=200)
-    year = models.PositiveSmallIntegerField()
+    year = models.PositiveSmallIntegerField(primary_key=True)
     description = models.TextField()
+
+    def __str__(self):
+        return str(self.year)
 
 class Race(models.Model):
     name = models.CharField(max_length=200)
@@ -12,6 +16,9 @@ class Race(models.Model):
 
     def __str__(self):
         return self.name
+
+class RaceAdmin(admin.ModelAdmin):
+    list_display = ('name', 'year')
 
 class Candidate(models.Model):
     #profile
@@ -34,3 +41,6 @@ class Candidate(models.Model):
 
     def __str__(self):
         return self.name
+
+class CandidateAdmin(admin.ModelAdmin):
+    list_display = ("name", "race", "winner")

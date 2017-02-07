@@ -1,0 +1,79 @@
+// styles for the election index, race index, and individual election pages
+
+/* ---------
+  ELECTIONS INDEX
+--------- */
+
+.elections--index__heading {
+  font-size: 3em;
+  @include breakpoint(medium) {
+    margin-top: 0;
+    font-size: 4em;
+  }
+}
+
+.elections--index__heading, .elections--index__subhead {
+  text-align: center;
+  font-weight: bold;
+
+  @include breakpoint(medium) {
+    text-align: left;
+  }
+
+}
+
+.elections--index__subhead {
+  font-weight: 500;
+  font-style: italic;
+}
+
+.elections--container {
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1em;
+  width: 100%;
+
+  @include breakpoint(medium) {
+    align-content: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding: 1em 1em 1em 0;
+  }
+}
+
+.elections--item {
+  align-items: center;
+  justify-content: center;
+  background: $theme-tertiary;
+  height: 17.5em;
+  width: 17.5em;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 1em;
+  
+  &:hover {
+    background: darken($theme-tertiary, 5%);
+    color: #fff !important;
+  }
+
+  &:first-of-type {
+    background: $theme-primary;
+
+    &:hover {
+      background: darken($theme-primary, 5%);
+      color: #fff !important;
+    }
+  }
+
+  @include breakpoint(medium) {
+    margin-right: 1em;
+    height: 20em;
+    width: 20em;
+  }
+}
+
+.elections--item__date {
+  font-size: 5em;
+  font-weight: bold;
+}

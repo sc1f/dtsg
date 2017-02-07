@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block pagetitle %}
+    {% endblock %}
+    {% load sass_tags %}
+    <link href="{% sass_src 'css/main.scss' %}" rel="stylesheet" type="text/css" />
+    <!-- It's easier to import motion-ui as a separate file than with sass @import -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<div class="top-bar navigation--main" id="main-navigation">
+    <div class="top-bar-left">
+        <a href="/" class="menu-text brand-text">Student Government Explorer</a>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu">
+            <li class="navigation--action__home">
+                <a href="#" class="button navigation--action">Explorer Home</a>
+            </li>
+            {% block pagenav %}
+            {% endblock %}
+            <li class="navigation--share__facebook">
+                <a href="#" class="navigation--share facebook">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li class="navigation--share__twitter">
+                <a href="#" class="navigation--share twitter">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% block content %}
+{% endblock %}
+
+<footer class="utsg--footer flex-container flex-dir-column">
+   <div class="utsg--footer__credits flex-child-auto">
+       <p class="utsg--footer__copy">
+           Developed by <em><a href="http://dailytexanonline.com" target="_blank" rel="nofollow noreferrer" class="utsg--footer__copy">The Daily Texan</a></em>
+       </p>
+       <p class="utsg--footer__copy">
+           Built by Junyuan Tan
+       </p>
+   </div>
+   <div class="utsg--footer__disclaimer flex-child-auto">
+       <p class="utsg--footer__copy">
+          Here are some disclaimers that are important.
+       </p>
+   </div>
+   <div class="utsg--footer__links flex-child-auto">
+       <p class="utsg--footer__cta">Follow Us!</p>
+       <ul class="menu">
+           <li class="navigation--share__facebook footer">
+               <a href="#" class="navigation--share facebook footer">
+                   <i class="fa fa-facebook" aria-hidden="true"></i>
+               </a>
+           </li>
+           <li class="navigation--share__twitter footer">
+               <a href="#" class="navigation--share twitter footer">
+                   <i class="fa fa-twitter" aria-hidden="true"></i>
+               </a>
+           </li>
+           <li class="navigation--share__email footer">
+               <a href="#" class="navigation--share email footer">
+                   <i class="fa fa-envelope" aria-hidden="true"></i>
+               </a>
+           </li>
+           <li class="navigation--share__github footer">
+               <a href="#" class="navigation--share github footer">
+                   <i class="fa fa-github" aria-hidden="true"></i>
+               </a>
+           </li>
+       </ul>
+   </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="{% static 'js/foundation.min.js' %}"></script>
+<script src="{% static 'js/electionApp.js' %}"></script>
+{% block scripts %}
+{% endblock %}
+
+</body>
+</html>

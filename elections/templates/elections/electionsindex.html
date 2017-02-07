@@ -1,0 +1,28 @@
+{% extends 'elections/base.html' %}
+
+{% block pagetitle %}
+<title>UT-Austin Student Government Elections | The Daily Texan</title>
+{% endblock %}
+
+{% block pagenav %}
+
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="small-12 columns">
+        <h1 class="elections--index__heading">Election Data</h1>
+        <p class="elections--index__subhead">Find candidates, platforms, results, and more:</p>
+        <div class="elections--container flex-container flex-dir-column">
+            {% for election in Elections %}
+            <a href="/elections/{{ election.year }}" class="elections--item flex-container flex-dir-column">
+                <h1 class="elections--item__date">{{ election.year }}</h1>
+            </a>
+            {% endfor %}
+        </div>
+        <p class="elections--index__copy">
+            Design has always been largely about systems, and how to create products in a scalable and repeatable way. From Pantone colors to Philips screws, these systems enable us to manage the chaos and create better products. Digital products are perhaps the most fertile ground for implementing these systems and yet it’s not often considered a priority.
+        </p>
+    </div>
+</div>
+{% endblock %}}

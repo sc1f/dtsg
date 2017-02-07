@@ -1,0 +1,29 @@
+// colors
+
+$theme-primary: #F27155;
+$theme-secondary: #529CA7;
+$theme-tertiary: #FCA758;
+$theme-lightgray: #f1f1ed;
+$theme-darkgray: #40454a;
+
+// typography
+
+// imports
+
+/*-----------
+
+  Foundation plays weird with Django
+
+  - we import the cloned Git repo for it here instead of compiling the separate file
+
+ ----------*/
+
+@import '../foundation_sass/settings/settings';
+@import '../foundation_sass/foundation';
+
+@include foundation-everything;
+
+@import '../sass/base';
+@import '../sass/election';
+@import '../sass/race';
+@import '../sass/candidate';
