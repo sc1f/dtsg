@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>ELECTION</h1>
+{{ election.year }}
+<p>{{ election.description }}</p>
+{% for race in races %}
+    <a href="/elections/{{ election.year }}/race/{{ race.id }}">{{ race.name }}</a>
+{% endfor %}
+</body>
+</html>

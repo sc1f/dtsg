@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>RACE</h1>
+<h3>{{ race.name }}</h3>
+{% for candidate in Candidates %}
+    <a href="/elections/{{ year }}/{{ race.id }}/candidate/{{ candidate.id }}">{{ candidate.name }}</a>
+{% endfor %}
+</body>
+</html>
