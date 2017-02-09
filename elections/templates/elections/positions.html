@@ -1,0 +1,62 @@
+{% extends 'elections/base.html' %}
+
+{% block pagetitle %}
+<title>{{ year }} {{ race.name }} Elections | The Daily Texan</title>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="small-12 column">
+        <h1 class="index--heading">{{ race.name }}</h1>
+        {% if positions_count == 1 %}
+        <p class="index--subhead index--subhead__large">There is <span class="positions--candidates">{{ positions_count }} position</span> in this race.</p>
+        {% else %}
+        <p class="index--subhead index--subhead__large">There are <span class="positions--candidates">{{ positions_count }} positions</span> in this race.</p>
+        {% endif %}
+        <div class="index-container positions flex-container flex-dir-column">
+            {% for position in Positions %}
+            <div class="position--item flex-container flex-dir-column" >
+                <a href="/elections/{{ year }}/{{ race.id }}&{{ position.id }}" class="position--item__name">{{ position.name }}</a>
+                <div class="position--item__meta flex-container flex-dir-row">
+                    <div class="position--item__metaitem  flex-container flex-dir-column">
+                        <h3 class="position--metaitem__number">
+                            {{ position.positions_available }}
+                        </h3>
+                        {% if position.positions_available > 1 %}
+                        <span class="position--metaitem__name">Positions</span>
+                        {% else %}
+                        <span class="position--metaitem__name">Position</span>
+                        {% endif %}
+                    </div>
+                    <div class="position--item__metaitem flex-container flex-dir-column">
+                        <h3 class="position--metaitem__number">
+                            {{ position.num_candidates }}
+                        </h3>
+                        {% if position.num_candidates > 1 %}
+                        <span class="position--metaitem__name">Candidates</span>
+                        {% elif position.num_candidates == 0 %}
+                        <span class="position--metaitem__name">Candidates</span>
+                        {% else %}
+                        <span class="position--metaitem__name">Candidates</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="navigation--breadcrumbs__container flex-container">
+    <nav aria-label="You are here:" role="navigation" style="margin:auto;">
+        <ul class="breadcrumbs">
+            <li><a href="/elections">Home</a></li>
+            <li><a href="/elections/{{ year }}">{{ election.year }} Election Data</a></li>
+            <li>
+                <span class="show-for-sr">Current: </span> {{ race.name }}
+            </li>
+        </ul>
+    </nav>
+</div>
+{% endblock %}
+
+

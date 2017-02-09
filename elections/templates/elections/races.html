@@ -1,0 +1,39 @@
+{% extends 'elections/base.html' %}
+
+{% block pagetitle %}
+<title>{{ election.year }} UT-Austin Student Government Elections | The Daily Texan</title>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="small-12 column">
+            <h1 class="index--heading">{{ election.year }} Elections</h1>
+            <p class="index--subhead elections--index__date">
+                {% if election.has_passed == True %}
+                    The election took place on {{ election.election_date|date:"l, F jS" }}.
+                {% else %}
+                    The election will take place on {{ election.election_date|date:"l, F jS" }}.
+                {% endif %}
+            </p>
+            <p class="index--copy">{{ election.description }}</p>
+            <div class="index--container flex-container flex-dir-column">
+                {% for race in races %}
+                <a class="races--item flex-container flex-dir-column" href="/elections/{{ election.year }}/race/{{ race.id }}">
+                    <h1 class="races--item__heading">{{ race.name }}</h1>
+                    <p class="races--item__positions">{{ race.num_positions }} positions</p>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+<div class="navigation--breadcrumbs__container flex-container">
+    <nav aria-label="You are here:" role="navigation">
+        <ul class="breadcrumbs">
+            <li><a href="/elections">Home</a></li>
+            <li>
+                <span class="show-for-sr">Current: </span> {{ election.year }} Election Data
+            </li>
+        </ul>
+    </nav>
+</div>
+{% endblock %}

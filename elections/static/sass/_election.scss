@@ -1,10 +1,12 @@
 // styles for the election index, race index, and individual election pages
 
 /* ---------
-  ELECTIONS INDEX
---------- */
+  GLOBAL INDEX STYLES
+---------- */
 
-.elections--index__heading {
+.index--heading {
+  color: $theme-darkgray;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 3em;
   @include breakpoint(medium) {
     margin-top: 0;
@@ -12,20 +14,114 @@
   }
 }
 
-.elections--index__heading, .elections--index__subhead {
+.index--heading, .index--subhead {
   text-align: center;
   font-weight: bold;
-
   @include breakpoint(medium) {
     text-align: left;
   }
 
 }
 
-.elections--index__subhead {
+.index--subhead {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500;
-  font-style: italic;
+  padding: 0 1em;
+
+  @include breakpoint(medium) {
+    padding: 0;
+  }
 }
+
+.index--subhead__large {
+  font-weight: 700;
+  font-size: 1.25rem;
+
+  @include breakpoint(medium) {
+    font-size: 1.5rem;
+  }
+}
+
+.index--copy {
+  padding: 0 1em;
+
+  @include breakpoint(medium) {
+    padding: 0;
+  }
+}
+
+.index--container {
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  width: 100%;
+  flex-wrap: wrap;
+
+  @include breakpoint(medium) {
+    align-content: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding: 1em 1em 1em 0;
+  }
+}
+
+.breadcrumbs {
+  padding-left: 1em;
+
+  @include breakpoint(medium) {
+    padding-left: 0;
+  }
+}
+
+/* ---------
+  ELECTIONS INDEX
+--------- */
+
+.elections--item {
+  align-items: center;
+  justify-content: center;
+  background: $theme-tertiary;
+  height: 18em;
+  width: 18em;
+  color: #fff;
+  text-align: center;
+  
+  &:hover {
+    background: darken($theme-tertiary, 5%);
+    color: #fff !important;
+  }
+
+  &:first-of-type {
+    background: $theme-primary;
+
+    &:hover {
+      background: darken($theme-primary, 5%);
+      color: #fff !important;
+    }
+  }
+
+  &:last-of-type {
+    margin-bottom: 1em;
+  }
+
+  @include breakpoint(medium) {
+    margin-right: 1em;
+    margin-bottom: 1em;
+    height: 20em;
+    width: 20em;
+  }
+}
+
+.elections--item__year {
+  font-size: 4em;
+  font-weight: bold;
+}
+
+.elections--item__date {
+  font-size: 1.5em;
+}
+
 
 .elections--container {
   align-items: center;
@@ -42,38 +138,10 @@
   }
 }
 
-.elections--item {
-  align-items: center;
-  justify-content: center;
-  background: $theme-tertiary;
-  height: 17.5em;
-  width: 17.5em;
-  color: #fff;
-  text-align: center;
-  margin-bottom: 1em;
-  
-  &:hover {
-    background: darken($theme-tertiary, 5%);
-    color: #fff !important;
-  }
-
-  &:first-of-type {
-    background: $theme-primary;
-
-    &:hover {
-      background: darken($theme-primary, 5%);
-      color: #fff !important;
-    }
-  }
-
-  @include breakpoint(medium) {
-    margin-right: 1em;
-    height: 20em;
-    width: 20em;
-  }
-}
-
-.elections--item__date {
-  font-size: 5em;
+.elections--index__date {
+  color: $theme-secondary;
+  font-size: 1.5rem;
   font-weight: bold;
+  font-style: normal;
+  margin-bottom: .25rem !important;
 }

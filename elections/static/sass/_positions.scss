@@ -1,0 +1,80 @@
+.positions--candidates {
+  color: $theme-tertiary;
+  font-weight: bold;
+}
+
+.index--container.positions {
+  margin-bottom: 2em;
+}
+
+.position--item {
+  align-content: flex-start;
+  align-items: flex-start;
+  border-bottom: 1px solid lightgray;
+  justify-content: space-between;
+  padding: .25em 0 1em 0;
+  width: 100%;
+
+  @include breakpoint(medium) {
+    flex-direction: row;
+    padding: 1em;
+  }
+
+  &:first-of-type {
+    border-top: 1px solid lightgray;
+  }
+}
+
+.position--item__meta {
+  justify-content: center;
+  width: 100%;
+
+  @include breakpoint(medium) {
+    flex: .3;
+    justify-content: flex-end;
+    width: 30%;
+  }
+}
+
+.position--item__metaitem {
+  background: $theme-lightgray;
+  color: $theme-secondary;
+  height: auto;
+  width: 100%;
+  padding: .5em;
+  margin-right: .5em;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+
+  @include breakpoint(medium) {
+    height: 6em;
+    width: 6em;
+  }
+
+}
+
+.position--metaitem__number {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.position--metaitem__name {
+  font-size: .9rem;
+
+  @include breakpoint(medium) {
+    font-size: 1rem;
+  }
+}
+
+.position--item__name {
+  flex: 1;
+  font-size: 1.5em;
+  font-weight: bold;
+
+  @include breakpoint(medium) {
+    font-size: 2em;
+    flex: .6
+  }
+
+}

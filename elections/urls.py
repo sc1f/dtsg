@@ -4,11 +4,11 @@ from . import views
 
 urlpatterns = [
     # index page for elections
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.election_index, name='election_index'),
     # get election by year
-    url(r'^(?P<year>[0-9]{4})/$', views.election, name='election'),
+    url(r'^(?P<year>[0-9]{4})/$', views.races, name='races'),
     # get race by election year
-    url(r'^(?P<year>[0-9]{4})/race/(?P<race_id>[0-9])/$', views.race, name='race'),
-    # get candidate by year and id
-    url(r'^(?P<year>[0-9]{4})/(?P<race_id>[0-9])/candidate/(?P<candidate_id>[0-9])/$', views.candidate, name='candidate')
+    url(r'^(?P<year>[0-9]{4})/race/(?P<race_id>[0-9])/$', views.positions, name='positions'),
+    # get position and related candidates by year and id
+    url(r'^(?P<year>[0-9]{4})/(?P<race_id>[0-9])&(?P<position_id>[0-9])/$', views.candidates, name='candidates')
 ]

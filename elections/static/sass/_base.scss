@@ -1,5 +1,5 @@
 body {
-  font-family: Avenir, sans-serif;
+  //font-family: Avenir, sans-serif;
   height: auto !important;
   display: flex;
   min-height: 100vh;
@@ -35,11 +35,11 @@ PAGE NAVIGATION
 
 }
 .brand-text {
-  color: $theme-primary;
+  color: $theme-darkgray;
   font-size: 1.25rem;
   
   &:hover {
-    color: darken($theme-primary, 15%);
+    color: darken($theme-darkgray, 15%);
   }
 
   @include breakpoint(medium) {
@@ -96,6 +96,19 @@ li.navigation--action__home {
   margin-left: 1.5em;
 }
 
+.navigation--breadcrumbs__container {
+  justify-content: center;
+}
+
+.breadcrumbs {
+  li > a {
+    font-weight: normal;
+  }
+  li {
+    font-weight: 600;
+  }
+}
+
 /* ----------
 
 PAGE CONTENT
@@ -103,8 +116,12 @@ PAGE CONTENT
 ---------- */
 
 .row {
-  padding: 1.5em;
-  flex: 1 0;
+  padding: 1.5em 0;
+
+  @include breakpoint(medium) {
+    padding: 1.5em;
+    flex: 1 0;
+  }
 }
 
 /* ----------
@@ -137,11 +154,15 @@ a.utsg--footer__copy {
 
 .utsg--footer__credits {
   .utsg--footer__copy {
-    text-align: left;
+    text-align: center;
+    
+    @include breakpoint(medium) {
+      text-align: left;
+    }
   }
 }
 
-.utsg--footer__credits, .utsg--footer__disclaimer {
+.utsg--footer__disclaimer {
   .utsg--footer__copy {
     text-align: center;
   }
@@ -150,12 +171,21 @@ a.utsg--footer__copy {
 .utsg--footer__links {
   .menu {
     justify-content: center;
+
+    @include breakpoint(medium) {
+      justify-content: flex-end;
+    }
   }
 }
 
 .utsg--footer__cta {
   text-align: center;
   font-weight: bold;
+  
+  @include breakpoint(medium) {
+    margin-right: .5em;
+    text-align: right;
+  }
 }
 
 .navigation--share__facebook.footer {

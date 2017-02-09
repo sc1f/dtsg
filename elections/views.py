@@ -1,36 +1,51 @@
 from django.shortcuts import render
-from .models import Election, Race, Candidate
+from django.db.models import Count
+from .models import Election, Race, Candidate, Position
 
 
-def index(request):
+def election_index(request):
     elections = Election.objects.all().order_by('-year')
-    return render(request, 'elections/electionsindex.html', {'Elections': elections})
+    return render(request, 'elections/elections_index.html', {
+        'Elections': elections
+    })
 
-def election(request, year):
+def races(request, year):
     selected_election = Election.objects.get(year=year)
-    races = Race.objects.filter(year=selected_election.year).all()
-    return render(request, 'elections/election.html', {'election': selected_election, 'races': races})
+    races = Race.objects.filter(year=selected_election.year).all().annotate(num_positions=Count('position'))
 
-def race(request, year, race_id):
+    return render(request, 'elections/races.html', {
+        'election': selected_election,
+        'races': races
+    })
+
+def positions(request, year, race_id):
     selected_election = Election.objects.get(year=year)
     selected_race = Race.objects.get(id=race_id)
+    positions = selected_race.position_set.all().annotate(num_candidates=Count('candidate')).order_by('-order')
+    positions_count = positions.count()
 
-    candidates = Candidate.objects.filter(race_id=race_id)
-
-    return render(request, 'elections/race.html', {
+    return render(request, 'elections/positions.html', {
         'election': selected_election,
         'race': selected_race,
-        'Candidates': candidates,
+        'Positions': positions,
+        'positions_count': positions_count,
         'year': year
     })
 
-def candidate(request, year, race_id, candidate_id):
+def candidates(request, year, race_id, position_id):
+    selected_position = Position.objects.get(id=position_id)
     selected_election = Election.objects.get(year=year)
     selected_race = Race.objects.get(id=race_id)
-    selected_candidate = Candidate.objects.get(id=candidate_id)
 
-    return render(request, 'elections/candidate.html', {
+    candidates = selected_position.candidate_set.all().order_by('name')
+    candidates_count = candidates.count()
+
+
+    return render(request, 'elections/candidates.html', {
+        'year': year,
         'election':selected_election,
         'race': selected_race,
-        'candidate': selected_candidate
+        'position': selected_position,
+        'Candidates': candidates,
+        'candidates_count': candidates_count
     })
