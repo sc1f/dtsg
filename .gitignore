@@ -3,3 +3,4 @@
 db.dt_sg
 db.sqlite3
 elections/__pycache__/*
+__pycache__
