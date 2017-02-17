@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Count
-from .models import Election, Race, Candidate, Position
-
+from .models import Election, Race, Position
+from .forms import CandidateForm
 
 def election_index(request):
     elections = Election.objects.all().order_by('-year')
@@ -21,7 +21,7 @@ def races(request, year):
 def positions(request, year, race_id):
     selected_election = Election.objects.get(year=year)
     selected_race = Race.objects.get(id=race_id)
-    positions = selected_race.position_set.all().annotate(num_candidates=Count('candidate')).order_by('-order')
+    positions = selected_race.position_set.all().filter(candidate__published=True).annotate(num_candidates=Count('candidate')).order_by('-order')
     positions_count = positions.count()
 
     return render(request, 'elections/positions.html', {
@@ -37,7 +37,7 @@ def candidates(request, year, race_id, position_id):
     selected_election = Election.objects.get(year=year)
     selected_race = Race.objects.get(id=race_id)
 
-    candidates = selected_position.candidate_set.all().order_by('name')
+    candidates = selected_position.candidate_set.filter(published=True).order_by('name')
     candidates_count = candidates.count()
 
 
@@ -49,3 +49,16 @@ def candidates(request, year, race_id, position_id):
         'Candidates': candidates,
         'candidates_count': candidates_count
     })
+
+def add_candidate(request, year):
+    if request.POST:
+        form = CandidateForm(request.POST)
+        if form.is_valid():
+            cand = form.save(commit=False)
+            cand.winner = False
+            cand.save()
+            return render(request,'elections/survey_submitsuccess.html',{})
+    else:
+        form = CandidateForm()
+        #form.fields['position'].queryset = Position.objects.filter(race_id = form.fields['race'].id)
+        return render(request, 'elections/survey.html', {'form': form, 'year': year})

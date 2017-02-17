@@ -2,30 +2,21 @@
   RACE INDEX
 --------- */
 
-$colors: $theme-primary, $theme-secondary, $theme-tertiary, #A6402A, #19A671, #FF8C73, #305BBF;
-$repeat: 8;  // How often you want the pattern to repeat.
-  // Warning: a higher number outputs more CSS.
-
-@for $i from 1 through $repeat {
-  .races--item:nth-child(#{length($colors)}n+#{$i}) {
-    background: lighten(nth($colors, random(length($colors))), 0%);
-
-    &:hover {
-      background: $theme-darkgray;
-      color: #fff !important;
-    }
-  }
-}
-
 .races--item {
   align-items: center;
   justify-content: center;
   background: $theme-primary;
   height: 18em;
   width: 18em;
+  padding: 1rem;
   color: #fff;
   text-align: center;
   margin-bottom: 0;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
 
   &:last-of-type {
     margin-bottom: 1em;
@@ -37,14 +28,35 @@ $repeat: 8;  // How often you want the pattern to repeat.
     height: 20em;
     width: 20em;
   }
+
+  &:hover {
+    background: $theme-darkgray !important;
+    color: #fff !important;
+  }
 }
 
+.races--item:nth-child(1){
+  background: $theme-primary;
+}
+
+.races--item:nth-child(2){
+  background: $theme-secondary;
+}
+.races--item:nth-child(3){
+  background: $theme-tertiary;
+}
+.races--item:nth-child(4){
+  background: #19A671;
+}
+.races--item:nth-child(5){
+  background: lighten(#305BBF, 15%);
+}
 .races--item__heading {
   font-size: 2.5em;
   font-weight: bold;
 }
 
 .races--item__candidates, .races--item__positions {
-  font-size: 1em;
+  font-size: 1.25em;
   margin-bottom: .25em !important;
 }

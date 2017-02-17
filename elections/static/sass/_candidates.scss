@@ -34,6 +34,8 @@
   width: 100%;
 }
 
+// header div
+
 .candidate--item__meta {
   background: $theme-lightgray;
   align-content: center;
@@ -49,15 +51,21 @@
   }
 }
 
+// header information
+
 .candidate--item__details {
   &.winner {
     color: #fff !important;
+  }
+  @include breakpoint(medium) {
+    align-self: flex-start;
+    margin-left: 2em;
   }
 }
 
 .candidate--item__name {
   color: $theme-primary;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
 
   @include breakpoint(medium) {
@@ -70,13 +78,26 @@
 }
 
 .candidate--item__metainfo {
+  font-size: 1.3rem;
   margin-bottom: .25em !important;
   font-style: italic;
 }
+
+//typography
+
+.candidate--item__heading {
+  font-weight: bold;
+}
+
+//images
+
+.candidate--item__imgcontain {
+  justify-content: center;
+}
+
 .candidate--item__image {
   margin-bottom: 1em;
   @include breakpoint(medium) {
-    margin-right: 1em;
     margin-bottom: 0;
   }
 
@@ -84,15 +105,41 @@
     min-height: 100%;
     min-width: 100%;
   }
+  
+  // no image
+  
+  &.noimg {
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: $theme-tertiary;
+    
+    i {
+      color: #fff;
+    }
+  }
 
   &.container {
     border-radius: 50%;
-    height: 10em;
-    width: 10em;
+    height: 12em;
+    width: 12em;
     overflow: hidden;
   }
-
 }
+
+.candidate--image__credit {
+  font-size: .9rem;
+  text-align: left;
+  margin-top: .5rem;
+  text-align: center;
+  &.winner {
+    color: #fff !important;
+  }
+}
+
+// social/website
 
 .candidate--social__item {
   background: $theme-lightgray;
@@ -102,9 +149,17 @@
   align-items: center;
   align-content: center;
   margin-right: .5em;
+
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
   
   &:hover {
     background: $theme-darkgray;
     color: #fff;
   }
 }
+
+

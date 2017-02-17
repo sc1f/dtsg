@@ -86,9 +86,15 @@
   width: 18em;
   color: #fff;
   text-align: center;
+
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
   
   &:hover {
-    background: darken($theme-tertiary, 5%);
+    background: $theme-darkgray;
     color: #fff !important;
   }
 
@@ -96,7 +102,7 @@
     background: $theme-primary;
 
     &:hover {
-      background: darken($theme-primary, 5%);
+      background: $theme-darkgray;
       color: #fff !important;
     }
   }

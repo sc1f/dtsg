@@ -1,0 +1,46 @@
+.survey--heading {
+  color: $theme-primary;
+  margin-bottom: 0;
+}
+.survey--subhead {
+  font-size: 1.25rem;
+  font-style: italic;
+}
+div.survey--container {
+  label {
+    color: $theme-darkgray;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  input {
+    font-size: 1.5rem;
+    @include box_shadow(2);
+    border: 0;
+    border-radius: 0 !important;
+    padding: 2rem .5rem;
+
+    &:active {
+      border: 0 !important;
+      @include box_shadow(4);
+      border-width: 3px;
+    }
+  }
+  input[type="file"] {
+    font-size: 1.25rem;
+  }
+  select {
+    background: 0;
+    @include box_shadow(2);
+    border-radius: 0;
+    border: 0;
+    height: 3rem;
+    font-size: 1.25rem;
+  }
+  textarea {
+    @include box_shadow(2);
+    border: 0;
+    border-radius: 0;
+    font-size: 1.5rem;
+    padding-bottom: 2em;
+  }
+}

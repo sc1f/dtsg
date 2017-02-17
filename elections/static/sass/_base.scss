@@ -37,6 +37,12 @@ PAGE NAVIGATION
 .brand-text {
   color: $theme-darkgray;
   font-size: 1.25rem;
+
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
   
   &:hover {
     color: darken($theme-darkgray, 15%);
@@ -49,12 +55,17 @@ PAGE NAVIGATION
 
 .navigation--action {
 
-
 }
 
 li.navigation--action__home {
 
   flex: .5;
+
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
 
   &:hover {
     background: darken($theme-lightgray, 10%);
@@ -66,6 +77,7 @@ li.navigation--action__home {
 
   @include breakpoint(medium) {
     flex: 0 0 auto;
+    margin: 0 .5rem;
   }
 }
 
@@ -81,6 +93,12 @@ li.navigation--action__home {
   height: 2em;
   font-size: 1rem;
   text-align: center;
+
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
   
   &:hover {
     background-color: darken($theme-secondary, 15%);
@@ -145,7 +163,21 @@ footer.utsg--footer {
   }
 }
 
+.utsg--footer__credits, .utsg--footer__disclaimer, .utsg--footer__links {
+  width: 33%;
+}
+
+
+.utsg--footer__copy {
+  font-size: .9rem;
+}
+
 a.utsg--footer__copy {
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
   color: #fff;
   &hover {
     color: $theme-secondary;

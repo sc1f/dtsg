@@ -16,7 +16,11 @@
         <div class="index-container positions flex-container flex-dir-column">
             {% for position in Positions %}
             <div class="position--item flex-container flex-dir-column" >
+                {% if position.num_candidates > 0 %}
                 <a href="/elections/{{ year }}/{{ race.id }}&{{ position.id }}" class="position--item__name">{{ position.name }}</a>
+                {% else %}
+                <p class="position--item__name disabled">{{ position.name }}</p>
+                {% endif %}
                 <div class="position--item__meta flex-container flex-dir-row">
                     <div class="position--item__metaitem  flex-container flex-dir-column">
                         <h3 class="position--metaitem__number">

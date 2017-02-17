@@ -76,5 +76,9 @@
     font-size: 2em;
     flex: .6
   }
+  
+  &.disabled {
+    color: #a0a0a0;
+  }
 
 }
