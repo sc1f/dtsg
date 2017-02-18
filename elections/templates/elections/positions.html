@@ -7,7 +7,8 @@
 {% block content %}
 <div class="row">
     <div class="small-12 column">
-        <h1 class="index--heading">{{ race.name }}</h1>
+        <h1 class="index--heading primary">{{ race.name }}</h1>
+        <p class="index--copy">{{ race.description | linebreaks }}</p>
         {% if positions_count == 1 %}
         <p class="index--subhead index--subhead__large">There is <span class="positions--candidates">{{ positions_count }} position</span> in this race.</p>
         {% else %}
@@ -15,12 +16,17 @@
         {% endif %}
         <div class="index-container positions flex-container flex-dir-column">
             {% for position in Positions %}
-            <div class="position--item flex-container flex-dir-column" >
+            <div class="position--item flex-container flex-dir-column card" >
+                <div class="position--item__maininfo flex-container flex-dir-column">
                 {% if position.num_candidates > 0 %}
                 <a href="/elections/{{ year }}/{{ race.id }}&{{ position.id }}" class="position--item__name">{{ position.name }}</a>
                 {% else %}
-                <p class="position--item__name disabled">{{ position.name }}</p>
+                <p class="position--item__name">{{ position.name }}</p>
                 {% endif %}
+                {% if position.description %}
+                <p class="index--copy">{{ position.description }}</p>
+                {% endif %}
+                </div>
                 <div class="position--item__meta flex-container flex-dir-row">
                     <div class="position--item__metaitem  flex-container flex-dir-column">
                         <h3 class="position--metaitem__number">

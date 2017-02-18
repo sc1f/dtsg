@@ -6,9 +6,13 @@
 
 
 {% block content %}
+{% load bleach_tags %}
 <div class="row">
     <div class="large-9 small-12 column" id="candidates">
-        <h1 class="index--heading">{{ position.name }}</h1>
+        <h1 class="index--heading primary">{{ position.name }}</h1>
+        {% if position.description %}
+        <p class="index--copy">{{ position.description }}</p>
+        {% endif %}
         {% if candidates_count == 1 %}
             <p class="index--subhead index--subhead__large">There is <span class="positions--candidates">{{ candidates_count }} candidate</span> for this position.</p>
         {% else %}
@@ -18,11 +22,10 @@
         {% if candidate.winner == True %}
         <div class="candidate--item card flex-container flex-dir-column" id="{{ candidate.name | slugify }}" data-magellan-target="{{ candidate.name | slugify }}">
             <div class="card-divider candidate--item__meta flex-container flex-dir-column winner">
-                {% load staticfiles %}
                 <div class="candidate--item__imgcontain flex-container flex-dir-column">
                 <div class="candidate--item__image container">
                 {% if candidate.image %}
-                    <img class="candidate--item__image img" src="{% static candidate.image %}" alt="{{ candidate.name }}">
+                    <img class="candidate--item__image img" src="{{candidate.image.url }}" alt="{{ candidate.name }}">
                 </div>
                 <p class="candidate--image__credit winner">Photo Credit: {{ candidate.image_credit }}</p>
                 {% else %}
@@ -32,26 +35,34 @@
                 </div>
                 <div class="candidate--item__details flex-container flex-dir-column winner">
                     <h3 class="candidate--item__name winner">Winner: {{ candidate.name }}</h3>
-                    <p class="candidate--item__metainfo">{{ candidate.major }}</p>
-                    <p class="candidate--item__metainfo">{{ candidate.year }}</p>
+                    <p class="candidate--item__metainfo">Major: <b>{{ candidate.major }}</b></p>
+                    <p class="candidate--item__metainfo">Year: <b>{{ candidate.year }}</b></p>
                 </div>
             </div>
             <div class="card-section">
+                {% autoescape off %}
                 <h5 class="candidate--item__heading">Statement</h5>
-                <p class="candidate--item__copy">{{ candidate.statement }}</p>
+                <p class="candidate--item__copy">{{ candidate.statement | linebreaks | safe}}</p>
                 <h5 class="candidate--item__heading">Platform</h5>
-                <p class="candidate--item__copy">{{ candidate.platform }}</p>
+                <p class="candidate--item__copy">{{ candidate.platform | linebreaks | safe}}</p>
+                {% endautoescape %}
             </div>
             <div class="card-section candidate--item__social flex-container flex-dir-row">
-                <a class="candidate--social__item flex-container flex-dir-column" href="/" target="_blank" rel="nofollow noreferrer">
+                {% if candidate.facebook %}
+                <a class="candidate--social__item flex-container flex-dir-column" href="{{ candidate.facebook }}" target="_blank" rel="nofollow noreferrer">
                     <i class="fa fa-facebook fa-lg"></i>
                 </a>
-                <a class="candidate--social__item flex-container flex-dir-column" href="/" target="_blank" rel="nofollow noreferrer">
+                {% endif %}
+                {% if candidate.twitter %}
+                <a class="candidate--social__item flex-container flex-dir-column" href="{{ candidate.twitter }}" target="_blank" rel="nofollow noreferrer">
                     <i class="fa fa-twitter fa-lg"></i>
                 </a>
-                <a class="candidate--social__item flex-container flex-dir-column" href="/" target="_blank" rel="nofollow noreferrer">
+                {% endif %}
+                {% if candidate.website %}
+                <a class="candidate--social__item flex-container flex-dir-column" href="{{ candidate.website }}" target="_blank" rel="nofollow noreferrer">
                     <i class="fa fa-globe fa-lg"></i>
                 </a>
+                {% endif %}
             </div>
         </div>
         {% endif %}
@@ -62,9 +73,8 @@
                 <div class="card-divider candidate--item__meta flex-container flex-dir-column">
                     <div class="candidate--item__imgcontain flex-container flex-dir-column">
                     <div class="candidate--item__image container">
-                        {% load staticfiles %}
                         {% if candidate.image %}
-                            <img class="candidate--item__image img" src="{% static candidate.image %}" alt="{{ candidate.name }}">
+                            <img class="candidate--item__image img" src="{{candidate.image.url }}" alt="{{ candidate.name }}">
                         </div>
                         <p class="candidate--image__credit">Photo Credit: {{ candidate.image_credit }}</p>
                         {% else %}
@@ -74,27 +84,35 @@
                     </div>
                     <div class="candidate--item__details flex-container flex-dir-column">
                         <h3 class="candidate--item__name">{{ candidate.name }}</h3>
-                        <p class="candidate--item__metainfo">{{ candidate.major }}</p>
-                        <p class="candidate--item__metainfo">{{ candidate.year }}</p>
+                        <p class="candidate--item__metainfo">Major: <b>{{ candidate.major }}</b></p>
+                        <p class="candidate--item__metainfo">Year: <b>{{ candidate.year }}</b></p>
                     </div>
                 </div>
 
                 <div class="card-section">
+                    {% autoescape off %}
                     <h5 class="candidate--item__heading">Statement</h5>
-                    <p class="candidate--item__copy">{{ candidate.statement }}</p>
+                    <p class="candidate--item__copy">{{ candidate.statement | linebreaks | bleach}}</p>
                     <h5 class="candidate--item__heading">Platform</h5>
-                    <p class="candidate--item__copy">{{ candidate.platform }}</p>
+                    <p class="candidate--item__copy">{{ candidate.platform | linebreaks | bleach}}</p>
+                    {% endautoescape %}
                 </div>
                 <div class="card-section candidate--item__social flex-container flex-dir-row">
-                    <a class="candidate--social__item flex-container flex-dir-column" href="/" target="_blank" rel="nofollow noreferrer">
+                    {% if candidate.facebook %}
+                    <a class="candidate--social__item flex-container flex-dir-column" href="{{ candidate.facebook }}" target="_blank" rel="nofollow noreferrer">
                         <i class="fa fa-facebook fa-lg"></i>
                     </a>
-                    <a class="candidate--social__item flex-container flex-dir-column" href="/" target="_blank" rel="nofollow noreferrer">
+                    {% endif %}
+                    {% if candidate.twitter %}
+                    <a class="candidate--social__item flex-container flex-dir-column" href="{{ candidate.twitter }}" target="_blank" rel="nofollow noreferrer">
                         <i class="fa fa-twitter fa-lg"></i>
                     </a>
-                    <a class="candidate--social__item flex-container flex-dir-column" href="/" target="_blank" rel="nofollow noreferrer">
+                    {% endif %}
+                    {% if candidate.website %}
+                    <a class="candidate--social__item flex-container flex-dir-column" href="{{ candidate.website }}" target="_blank" rel="nofollow noreferrer">
                         <i class="fa fa-globe fa-lg"></i>
                     </a>
+                    {% endif %}
                 </div>
             </div>
         {% endif %}

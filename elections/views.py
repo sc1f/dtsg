@@ -22,7 +22,7 @@ def positions(request, year, race_id):
     selected_election = Election.objects.get(year=year)
     selected_race = Race.objects.get(id=race_id)
     positions = selected_race.position_set.all().filter(candidate__published=True).annotate(num_candidates=Count('candidate')).order_by('-order')
-    positions_count = positions.count()
+    positions_count = selected_race.position_set.all().count()
 
     return render(request, 'elections/positions.html', {
         'election': selected_election,

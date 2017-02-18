@@ -31,6 +31,8 @@
 // individual candidate items
 
 .candidate--item {
+  border: 0;
+  @include box_shadow(1);
   width: 100%;
 }
 
@@ -69,7 +71,7 @@
   font-weight: bold;
 
   @include breakpoint(medium) {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   &.winner {
@@ -78,9 +80,8 @@
 }
 
 .candidate--item__metainfo {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin-bottom: .25em !important;
-  font-style: italic;
 }
 
 //typography
@@ -159,6 +160,14 @@
   &:hover {
     background: $theme-darkgray;
     color: #fff;
+  }
+}
+
+// card content
+
+.card-section {
+  h1 {
+    font-size: 2rem;
   }
 }
 

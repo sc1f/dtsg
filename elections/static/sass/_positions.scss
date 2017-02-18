@@ -10,7 +10,9 @@
 .position--item {
   align-content: flex-start;
   align-items: flex-start;
-  border-bottom: 1px solid lightgray;
+  background: #fff;
+  border: 0;
+  @include box_shadow(1);
   justify-content: space-between;
   padding: .25em 0 1em 0;
   width: 100%;
@@ -18,10 +20,6 @@
   @include breakpoint(medium) {
     flex-direction: row;
     padding: 1em;
-  }
-
-  &:first-of-type {
-    border-top: 1px solid lightgray;
   }
 }
 

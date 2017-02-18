@@ -1,5 +1,13 @@
+.column.survey {
+  padding: 0 3rem;
+
+  @include breakpoint(medium) {
+    padding: inherit;
+  }
+}
 .survey--heading {
   color: $theme-primary;
+  line-height: 1.3;
   margin-bottom: 0;
 }
 .survey--subhead {
@@ -12,35 +20,63 @@ div.survey--container {
     font-size: 2rem;
     font-weight: bold;
   }
-  input {
-    font-size: 1.5rem;
-    @include box_shadow(2);
+  input, textarea {
+    color: $theme-darkgray;
+    font-size: 1.25rem;
+    @include box_shadow(1);
     border: 0;
     border-radius: 0 !important;
-    padding: 2rem .5rem;
+    padding: 1.5rem .5rem;
 
-    &:active {
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+
+    &:active, &:focus {
       border: 0 !important;
-      @include box_shadow(4);
-      border-width: 3px;
+      @include box_shadow(3);
     }
   }
   input[type="file"] {
     font-size: 1.25rem;
   }
   select {
-    background: 0;
-    @include box_shadow(2);
-    border-radius: 0;
+    @include box_shadow(1);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     border: 0;
-    height: 3rem;
+    color: $theme-darkgray;
+    height: auto;
+    padding: 1rem .5rem;
     font-size: 1.25rem;
+    background-position: right .5rem center;
+
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+
+    &:active, &:focus {
+      @include box_shadow(3);
+    }
   }
   textarea {
-    @include box_shadow(2);
+    font-family: Helvetica, Arial, sans-serif !important;
+    padding: .5rem;
+  }
+  span.helptext {
+    font-style: italic;
+  }
+  div.mce-tinymce {
     border: 0;
-    border-radius: 0;
-    font-size: 1.5rem;
-    padding-bottom: 2em;
+    @include box_shadow(1);
+  }
+  div.mce-container.mce-menubar.mce-toolbar.mce-stack-layout-item.mce-first {
+    border-width: 1px !important;
+    border-top: 1px solid lightgray;
   }
 }

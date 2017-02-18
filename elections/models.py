@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib import admin
 from datetime import date
-from django.utils import timezone
+from imagekit.models import ProcessedImageField
+from imagekit.processors import ResizeToFit
 
 class Election(models.Model):
     name = models.CharField(default="Election",max_length=200)
@@ -23,6 +24,7 @@ class Race(models.Model):
     year = models.ForeignKey('Election', on_delete=models.CASCADE,)
     description = models.TextField()
 
+
     def __str__(self):
         return self.name
 
@@ -33,6 +35,7 @@ class RaceAdmin(admin.ModelAdmin):
 class Position(models.Model):
     name = models.CharField(max_length=200)
     race = models.ForeignKey('Race', on_delete=models.CASCADE,)
+    description = models.TextField(blank=True)
     position_year = models.ForeignKey('Election', on_delete=models.CASCADE,)
     positions_available = models.PositiveSmallIntegerField(unique=False)
     order = models.PositiveSmallIntegerField(unique=False,blank=True)
@@ -49,7 +52,14 @@ class Candidate(models.Model):
     position = models.ForeignKey('Position', on_delete=models.CASCADE,)
     major = models.CharField(max_length=200, unique=False)
     year = models.CharField(max_length=200, unique=False)
-    image = models.FileField(upload_to='images/%Y/candidates/', blank=True, null=True)
+    image = ProcessedImageField(upload_to='images/%Y/candidates/',
+                           processors=[ResizeToFit(500)],
+                           format='JPEG',
+                           options={
+                               'quality': 100
+                           },
+                           blank=True,
+                           null = True)
     image_credit = models.CharField(max_length=200, blank=True, unique=False)
 
     #information

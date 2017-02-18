@@ -142,6 +142,83 @@ PAGE CONTENT
   }
 }
 
+/* ---------
+  GLOBAL INDEX STYLES
+---------- */
+
+.index--heading {
+  color: $theme-darkgray;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  @include breakpoint(medium) {
+    margin-top: 0;
+    font-size: 3em;
+  }
+  &.primary {
+    color: $theme-primary;
+  }
+}
+
+.index--heading, .index--subhead {
+  text-align: center;
+  font-weight: bold;
+  @include breakpoint(medium) {
+    text-align: left;
+  }
+
+}
+
+.index--subhead {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  padding: 0 1em;
+
+  @include breakpoint(medium) {
+    padding: 0;
+  }
+}
+
+.index--subhead__large {
+  font-weight: 700;
+  font-size: 1.25rem;
+
+  @include breakpoint(medium) {
+    font-size: 1.5rem;
+  }
+}
+
+.index--copy {
+  padding: 0 1em;
+
+  @include breakpoint(medium) {
+    padding: 0;
+  }
+}
+
+.index--container {
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  width: 100%;
+  flex-wrap: wrap;
+
+  @include breakpoint(medium) {
+    align-content: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding: 1em 1em 1em 0;
+  }
+}
+
+.breadcrumbs {
+  padding-left: 1em;
+
+  @include breakpoint(medium) {
+    padding-left: 0;
+  }
+}
+
 /* ----------
 
 FOOTER
@@ -164,7 +241,11 @@ footer.utsg--footer {
 }
 
 .utsg--footer__credits, .utsg--footer__disclaimer, .utsg--footer__links {
-  width: 33%;
+  width: 100%;
+
+  @include breakpoint(medium) {
+    width: 33%;
+  }
 }
 
 

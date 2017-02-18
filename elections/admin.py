@@ -1,10 +1,8 @@
 from django.contrib import admin
 from .models import Election, Race, Position, Candidate, RaceAdmin, PositionAdmin
-
-# Custom Admin Actions
+admin.site.site_header = 'Daily Texan Student Government Explorer - Admin Panel'
 
 # Allows us to bulk publish candidates
-
 
 class CandidateAdmin(admin.ModelAdmin):
     list_display = ("name", "position", "winner", "published")
