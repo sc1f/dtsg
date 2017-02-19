@@ -3,13 +3,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     {% block pagetitle %}
     {% endblock %}
     {% load sass_tags %}
     <link href="{% sass_src 'css/main.scss' %}" rel="stylesheet" type="text/css" />
-    <!-- It's easier to import motion-ui as a separate file than with sass @import -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- TODO: meta tags -->
+
+    <meta name="description" content="">
+    <meta property="og:site_name" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+
 </head>
 <body>
 

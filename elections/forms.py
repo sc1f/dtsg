@@ -2,18 +2,8 @@ from django.forms import ModelForm
 from elections.models import Candidate
 from django.utils.translation import gettext_lazy as _
 from tinymce.widgets import TinyMCE
-from imagekit.models import ProcessedImageField
-from imagekit.processors import ResizeToFit
 
 class CandidateForm(ModelForm):
-    image = ProcessedImageField(upload_to='images/%Y/candidates/',
-                        processors=[ResizeToFit(500)],
-                        format='JPEG',
-                        options={
-                            'quality': 100
-                        },
-                        blank=True,
-                        null = True)
     class Meta:
         model = Candidate
         fields = ['name','position','major','year','image','image_credit','statement','platform','website','facebook','twitter']
@@ -29,6 +19,8 @@ class CandidateForm(ModelForm):
         }
         help_texts = {
             'image': _('Try to upload a square image, or make sure your face is near the center of the frame.'),
+            'facebook': _("Full URL please."),
+            'twitter': _("Full URL please.")
         }
         widgets = {
             'statement': TinyMCE(attrs={'cols': 80, 'rows': 20}),

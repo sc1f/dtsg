@@ -21,7 +21,7 @@ def races(request, year):
 def positions(request, year, race_id):
     selected_election = Election.objects.get(year=year)
     selected_race = Race.objects.get(id=race_id)
-    positions = selected_race.position_set.all().filter(candidate__published=True).annotate(num_candidates=Count('candidate')).order_by('-order')
+    positions = selected_race.position_set.all().filter(candidate__published=True).annotate(num_candidates=Count('candidate')).order_by('order')
     positions_count = selected_race.position_set.all().count()
 
     return render(request, 'elections/positions.html', {
@@ -52,7 +52,7 @@ def candidates(request, year, race_id, position_id):
 
 def add_candidate(request, year):
     if request.POST:
-        form = CandidateForm(request.POST)
+        form = CandidateForm(request.POST, request.FILES)
         if form.is_valid():
             cand = form.save(commit=False)
             cand.winner = False

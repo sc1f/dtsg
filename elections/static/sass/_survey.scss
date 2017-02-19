@@ -21,6 +21,7 @@ div.survey--container {
     font-weight: bold;
   }
   input, textarea {
+    background: #fff;
     color: $theme-darkgray;
     font-size: 1.25rem;
     @include box_shadow(1);

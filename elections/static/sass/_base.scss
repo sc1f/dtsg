@@ -15,6 +15,7 @@ PAGE NAVIGATION
 .top-bar.navigation--main {
   background: $theme-lightgray;
   border: 0;
+  min-width: 100%;
 
   .menu, .button {
     background: transparent;
@@ -59,7 +60,7 @@ PAGE NAVIGATION
 
 li.navigation--action__home {
 
-  flex: .5;
+  flex: 1;
 
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
@@ -135,10 +136,23 @@ PAGE CONTENT
 
 .row {
   padding: 1.5em 0;
+  min-width: 100%;
+
 
   @include breakpoint(medium) {
     padding: 1.5em;
     flex: 1 0;
+    min-width: 75%;
+  }
+}
+
+div.small-12.column {
+  p {
+    padding: 0 1em;
+
+    @include breakpoint(medium) {
+      padding: 0;
+    }
   }
 }
 
@@ -181,6 +195,7 @@ PAGE CONTENT
 .index--subhead__large {
   font-weight: 700;
   font-size: 1.25rem;
+  text-align: left;
 
   @include breakpoint(medium) {
     font-size: 1.5rem;

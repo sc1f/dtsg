@@ -3,6 +3,7 @@ from django.contrib import admin
 from datetime import date
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFit
+from tinymce import models as tinymce_models
 
 class Election(models.Model):
     name = models.CharField(default="Election",max_length=200)
@@ -63,8 +64,8 @@ class Candidate(models.Model):
     image_credit = models.CharField(max_length=200, blank=True, unique=False)
 
     #information
-    statement = models.TextField()
-    platform = models.TextField()
+    statement = tinymce_models.HTMLField()
+    platform = tinymce_models.HTMLField()
 
     #contact
     website = models.URLField(blank=True)

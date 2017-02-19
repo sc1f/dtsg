@@ -90,6 +90,12 @@
   font-weight: bold;
 }
 
+div.card-section {
+  p {
+    padding: 0 !important;
+  }
+}
+
 //images
 
 .candidate--item__imgcontain {
