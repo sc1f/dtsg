@@ -13,7 +13,7 @@
         <h3 class="index--subhead survey--subhead">Created by the Daily Texan</h3>
         <p class="index--copy">Please fill out this form for your information to be included in the Daily Texan's SG Election Explorer for this year. Information will be validated by Daily Texan staff, and posted as soon as possible.</p>
         <div class="survey--container">
-            <form method="POST" class="survey--form">
+            <form enctype="multipart/form-data" method="POST" class="survey--form">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit" id="save-form" class="button primary">Submit</button>
