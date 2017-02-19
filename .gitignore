@@ -5,3 +5,4 @@ db.sqlite3
 elections/__pycache__/*
 __pycache__
 /assets/images
+*.pyc
