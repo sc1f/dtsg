@@ -7,7 +7,7 @@
 {% block content %}
     <div class="row">
         <div class="small-12 column">
-            <h1 class="index--heading">{{ election.year }} Elections</h1>
+            <h1 class="index--heading">{{ election.name }}</h1>
             <p class="index--subhead elections--index__date">
                 {% if election.has_passed == True %}
                     The election took place on {{ election.election_date|date:"l, F jS" }}.

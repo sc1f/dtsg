@@ -12,10 +12,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='election',
-            name='id',
-        ),
         migrations.AlterField(
             model_name='election',
             name='year',

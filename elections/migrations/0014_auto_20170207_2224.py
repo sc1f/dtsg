@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Position',
             fields=[
-                ('position_name', models.CharField(max_length=200, primary_key=True, serialize=False)),
+                ('position_name', models.CharField(max_length=200)),
                 ('positions_available', models.PositiveSmallIntegerField()),
                 ('position_year', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='elections.Election')),
                 ('race', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='elections.Race')),
@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='candidate',
             name='position',
-            field=models.ForeignKey(default='Student Body President', on_delete=django.db.models.deletion.CASCADE, to='elections.Position'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='elections.Position'),
             preserve_default=False,
         ),
     ]
