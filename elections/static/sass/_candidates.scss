@@ -129,6 +129,9 @@ div.card-section {
   }
 
   &.container {
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
     border-radius: 50%;
     height: 12em;
     width: 12em;

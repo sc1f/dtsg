@@ -23,12 +23,9 @@
         <div class="candidate--item card flex-container flex-dir-column" id="{{ candidate.name | slugify }}" data-magellan-target="{{ candidate.name | slugify }}">
             <div class="card-divider candidate--item__meta flex-container flex-dir-column winner">
                 <div class="candidate--item__imgcontain flex-container flex-dir-column">
-                <div class="candidate--item__image container">
-                    <!-- TODO make this a background image -->
                 {% if candidate.image %}
-                    <img class="candidate--item__image img" src="{{candidate.image.url }}" alt="{{ candidate.name }}">
-                </div>
-                <p class="candidate--image__credit winner">Photo Credit: {{ candidate.image_credit }}</p>
+                    <div class="candidate--item__image container" style="background-image: url({{ candidate.image.url }});"></div>
+                    <p class="candidate--image__credit winner">Photo Credit: {{ candidate.image_credit }}</p>
                 {% else %}
                     <div class="candidate--item__image noimg flex-container flex-dir-column"><i class="fa fa-user fa-4x" aria-hidden="true"></i></div>
                 </div>
@@ -78,9 +75,8 @@
                     <div class="candidate--item__imgcontain flex-container flex-dir-column">
                     <div class="candidate--item__image container">
                         {% if candidate.image %}
-                            <img class="candidate--item__image img" src="{{candidate.image.url }}" alt="{{ candidate.name }}">
-                        </div>
-                        <p class="candidate--image__credit">Photo Credit: {{ candidate.image_credit }}</p>
+                        <div class="candidate--item__image container" style="background-image: url({{ candidate.image.url }});"></div>
+                        <p class="candidate--image__credit winner">Photo Credit: {{ candidate.image_credit }}</p>
                         {% else %}
                         <div class="candidate--item__image noimg flex-container flex-dir-column"><i class="fa fa-user fa-4x" aria-hidden="true"></i></div>
                         </div>
