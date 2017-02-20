@@ -12,9 +12,13 @@ These instructions will get you a copy of the project up and running on your loc
 **This is a Python 3 project! Make sure everything is run in `python3` and `pip3`**
 
 1: `pip3 install virtualenv`
+
 2: `git clone` this repository
+
 3: `virtualenv .`
+
 4: `source bin/activate`
+
 5: `pip install -r requirements.txt`
 
 ### Installing
@@ -22,14 +26,19 @@ These instructions will get you a copy of the project up and running on your loc
 After installing the requirements above, set up a local Postgres database (instructions are for Ubuntu, MacOS)
 
 1: `apt-get libpq-dev postgresql postgresql-contrib`, or `brew install postgres`
+
 2: `sudo -u postgres psql` or `psql`
+
 3: Once in the postgres shell: `CREATE DATABASE dt_sg;`
+
 4: `CREATE USER <your username> WITH PASSWORD <your password>;`
+
 5: `GRANT ALL PRIVILEGES ON DATABASE dt_sg TO <your user>;`
+
 6: `ctrl-D` out of the psql shell.
 
 ### **Go into `./dt_sg/` and create a file named `settings_secret.py`.**
-**This is really important! Without `settings_secret`, the project won't run.
+**This is really important! Without `settings_secret`, the project won't run.**
 
 Inside `settings_secret.py`, paste this:
 
