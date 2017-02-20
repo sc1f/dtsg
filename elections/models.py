@@ -85,7 +85,7 @@ class Candidate(models.Model):
 
     def percentage_of_votes(self):
         percent = (self.votes_received / self.total_votes) * 100
-        return str(percent + "%")
+        return percent
 
     def __str__(self):
         return self.name
