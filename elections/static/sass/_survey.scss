@@ -1,5 +1,5 @@
 .column.survey {
-  padding: 0 3rem;
+  padding: 0 1rem;
 
   @include breakpoint(medium) {
     padding: inherit;
@@ -25,7 +25,7 @@ div.survey--container {
     color: $theme-darkgray;
     font-size: 1.25rem;
     @include box_shadow(1);
-    border: 0;
+    border: 1px solid lightgray !important;
     border-radius: 0 !important;
     padding: 1.5rem .5rem;
 
@@ -36,7 +36,7 @@ div.survey--container {
     transition: all 0.4s;
 
     &:active, &:focus {
-      border: 0 !important;
+      border: 1px solid lightgray !important;
       @include box_shadow(3);
     }
   }
@@ -48,7 +48,7 @@ div.survey--container {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border: 0;
+    border: 1px solid lightgray !important;
     color: $theme-darkgray;
     height: auto;
     padding: 1rem .5rem;
@@ -73,7 +73,7 @@ div.survey--container {
     font-style: italic;
   }
   div.mce-tinymce {
-    border: 0;
+    border: 1px solid lightgray !important;
     @include box_shadow(1);
   }
   div.mce-container.mce-menubar.mce-toolbar.mce-stack-layout-item.mce-first {
