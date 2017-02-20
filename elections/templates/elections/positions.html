@@ -54,6 +54,12 @@
             </div>
             {% endfor %}
         </div>
+        <h3 class="index--subhead">Positions without any candidates running:</h3>
+        <ul>
+            {% for position in Empty_Positions %}
+            <li>{{ position.name }}</li>
+            {% endfor %}
+        </ul>
     </div>
 </div>
 <div class="navigation--breadcrumbs__container flex-container">
