@@ -24,7 +24,7 @@
             <div class="card-divider candidate--item__meta flex-container flex-dir-column winner">
                 <div class="candidate--item__imgcontain flex-container flex-dir-column">
                 {% if candidate.image %}
-                    <div class="candidate--item__image container" style="background-image: url({{ candidate.image.url }});"></div>
+                    <div class="candidate--item__image container" style="background-image: url({{ candidate.image.url }});-webkit-background-size: cover;background-size: cover;background-repeat: no-repeat;"></div>
                     <p class="candidate--image__credit winner">Photo Credit: {{ candidate.image_credit }}</p>
                 {% else %}
                     <div class="candidate--item__image noimg flex-container flex-dir-column"><i class="fa fa-user fa-4x" aria-hidden="true"></i></div>
@@ -75,7 +75,7 @@
                     <div class="candidate--item__imgcontain flex-container flex-dir-column">
                     <div class="candidate--item__image container">
                         {% if candidate.image %}
-                        <div class="candidate--item__image container" style="background-image: url({{ candidate.image.url }});"></div>
+                        <div class="candidate--item__image container" style="background-image: url({{ candidate.image.url }});-webkit-background-size: cover;background-size: cover;background-repeat: no-repeat;"></div>
                         <p class="candidate--image__credit winner">Photo Credit: {{ candidate.image_credit }}</p>
                         {% else %}
                         <div class="candidate--item__image noimg flex-container flex-dir-column"><i class="fa fa-user fa-4x" aria-hidden="true"></i></div>
