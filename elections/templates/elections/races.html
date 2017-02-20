@@ -15,6 +15,9 @@
                     The election will take place on {{ election.election_date|date:"l, F jS" }}.
                 {% endif %}
             </p>
+            {% if election.has_passed == False %}
+            <p class="index--copy" style="font-weight: bold;">Vote at <a href="http://utexasvote.org">utexasvote.org</a>!</p>
+            {% endif %}
             <p class="index--copy">{{ election.description }}</p>
             <div class="index--container flex-container flex-dir-column">
                 {% for race in races %}
