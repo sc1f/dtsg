@@ -6,3 +6,4 @@ elections/__pycache__/*
 __pycache__
 /assets/images
 *.pyc
+dt_sg/settings_secret.py
