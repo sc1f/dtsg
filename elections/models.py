@@ -26,6 +26,7 @@ class Race(models.Model):
     name = models.CharField(max_length=200)
     year = models.ForeignKey('Election', on_delete=models.CASCADE,)
     description = models.TextField()
+    order = models.PositiveSmallIntegerField(unique=False,blank=True)
 
 
     def __str__(self):
