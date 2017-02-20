@@ -48,7 +48,7 @@ class Position(models.Model):
         return self.name
 
 class PositionAdmin(admin.ModelAdmin):
-    list_display = ('name', 'position_year', 'race', 'positions_available')
+    list_display = ('name', 'position_year', 'race', 'positions_available', 'order')
     list_filter = ('race', 'position_year')
 
 class Candidate(models.Model):
