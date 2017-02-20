@@ -23,7 +23,11 @@
                 {% for race in races %}
                 <a class="races--item flex-container flex-dir-column" href="/elections/{{ election.year }}/race/{{ race.id }}">
                     <h1 class="races--item__heading">{{ race.name }}</h1>
+                    {% if race.num_positions == 1 %}
+                    <p class="races--item__positions">{{ race.num_positions }} position</p>
+                    {% else %}
                     <p class="races--item__positions">{{ race.num_positions }} positions</p>
+                    {% endif %}
                 </a>
                 {% endfor %}
             </div>
