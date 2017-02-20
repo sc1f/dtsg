@@ -73,14 +73,13 @@
             <div class="candidate--item card flex-container flex-dir-column" id="{{ candidate.name | slugify }}" data-magellan-target="{{ candidate.name | slugify }}">
                 <div class="card-divider candidate--item__meta flex-container flex-dir-column">
                     <div class="candidate--item__imgcontain flex-container flex-dir-column">
-                    <div class="candidate--item__image container">
                         {% if candidate.image %}
                         <div class="candidate--item__image container" style="background-image: url({{ candidate.image.url }});-webkit-background-size: cover;background-size: cover;background-repeat: no-repeat;"></div>
                         <p class="candidate--image__credit winner">Photo Credit: {{ candidate.image_credit }}</p>
                         {% else %}
                         <div class="candidate--item__image noimg flex-container flex-dir-column"><i class="fa fa-user fa-4x" aria-hidden="true"></i></div>
-                        </div>
-                        {% endif %}
+                    </div>g
+                    {% endif %}
                     </div>
                     <div class="candidate--item__details flex-container flex-dir-column">
                         <h3 class="candidate--item__name">{{ candidate.name }}</h3>
