@@ -15,7 +15,10 @@ class CandidateForm(ModelForm):
             'image': _("Upload a photo of yourself"),
             'image_credit': _("Who took this photo?"),
             'statement': _("What's your campaign statement?"),
-            'platform': _("What's your platform?")
+            'platform': _("What's your platform?"),
+            'website': _("Website (optional)"),
+            'facebook': _("Facebook (optional)"),
+            'twitter': _("Twitter (optional)")
         }
         help_texts = {
             'image': _('Try to upload a square image, or make sure your face is near the center of the frame.'),

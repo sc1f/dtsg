@@ -10,8 +10,11 @@
     <div class="small-12 medium-2 column" ></div>
     <div class="small-12 medium-8 column survey">
         <h1 class="index--heading survey--heading">{{ year }} Candidate Information Form</h1>
-        <h3 class="index--subhead survey--subhead">Created by the Daily Texan</h3>
-        <p class="index--copy">Please fill out this form for your information to be included in the Daily Texan's SG Election Explorer for this year. Information will be validated by Daily Texan staff, and posted as soon as possible.</p>
+        <h3 class="index--subhead survey--subhead">Created by The Daily Texan</h3>
+        <p class="index--copy">Please fill out this form for your information to be included in The Daily Texan's SG Election Explorer for this year. Information will be validated by Daily Texan staff, and posted as soon as possible.</p>
+        {% if error%}
+        <h3 style="color: red;font-weight: bold;">Please correct the errors marked below.</h3>
+        {% endif %}
         <div class="survey--container">
             <form enctype="multipart/form-data" method="POST" class="survey--form">
                 {% csrf_token %}

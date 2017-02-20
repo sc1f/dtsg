@@ -9,6 +9,7 @@
     {% load sass_tags %}
     <link href="{% sass_src 'css/main.scss' %}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='shortcut icon' type='image/x-icon' href='{% static "favicon.ico" %}' />
 
     <!-- TODO: meta tags -->
 
@@ -18,7 +19,7 @@
     <meta property="og:url" content="" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="" />
-    <meta property="og:image" content="" />
+    <meta property="og:image" content='{% static "meta.png" %}' />
 
 </head>
 <body>
@@ -35,12 +36,12 @@
             {% block pagenav %}
             {% endblock %}
             <li class="navigation--share__facebook">
-                <a href="#" class="navigation--share facebook" target="blank" rel="nofollow noreferrer">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=dailytexangov.me" class="navigation--share facebook" target="blank" rel="noopener noreferrer">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
             <li class="navigation--share__twitter">
-                <a href="#" class="navigation--share twitter" target="blank" rel="nofollow noreferrer">
+                <a href="https://twitter.com/home?status=Election%20season%20at%20UT%20is%20underway%E2%80%94explore%20the%20candidates%20and%20make%20an%20informed%20decision%3A%20dailytexangov.me" class="navigation--share twitter" target="blank" rel="noopener noreferrer">
                     <i class="fa fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -54,10 +55,10 @@
 <footer class="utsg--footer flex-container flex-dir-column">
    <div class="utsg--footer__credits flex-child-auto">
        <p class="utsg--footer__copy">
-           Developed by <em><a href="http://dailytexanonline.com" target="_blank" rel="nofollow noreferrer" class="utsg--footer__copy">The Daily Texan</a></em>
+           Developed by <em><a href="http://dailytexanonline.com" target="_blank" rel="noopener noreferrer" class="utsg--footer__copy">The Daily Texan</a></em>
        </p>
        <p class="utsg--footer__copy">
-           Built by Junyuan Tan and Arjun Talpallikar
+           Built by <a href="https://juntan.me" target="_blank" rel="noopener noreferrer" style="color: #fff;font-weight: bold;">Junyuan Tan</a> and <a href="https://github.com/talpallikar" target="_blank" rel="noopener noreferrer" style="color: #fff;font-weight: bold;">Arjun Talpallikar</a>
        </p>
    </div>
    <div class="utsg--footer__disclaimer flex-child-auto">
@@ -69,22 +70,22 @@
        <p class="utsg--footer__cta">Follow Us!</p>
        <ul class="menu">
            <li class="navigation--share__facebook footer">
-               <a href="#" class="navigation--share facebook footer" target="blank" rel="nofollow noreferrer">
+               <a href="https://www.facebook.com/sharer/sharer.php?u=dailytexangov.me" class="navigation--share facebook footer" target="blank" rel="noopener noreferrer">
                    <i class="fa fa-facebook" aria-hidden="true"></i>
                </a>
            </li>
            <li class="navigation--share__twitter footer">
-               <a href="#" class="navigation--share twitter footer" target="blank" rel="nofollow noreferrer">
+               <a href="https://twitter.com/home?status=Election%20season%20at%20UT%20is%20underway%E2%80%94explore%20the%20candidates%20and%20make%20an%20informed%20decision%3A%20dailytexangov.me" class="navigation--share twitter footer" target="blank" rel="noopener noreferrer">
                    <i class="fa fa-twitter" aria-hidden="true"></i>
                </a>
            </li>
            <li class="navigation--share__email footer">
-               <a href="#" class="navigation--share email footer" target="blank" rel="nofollow noreferrer">
+               <a href="mailto:managingeditor@dailytexanonline.com?Subject=Student%20Government%20Explorer" class="navigation--share email footer" target="blank" rel="noopener noreferrer">
                    <i class="fa fa-envelope" aria-hidden="true"></i>
                </a>
            </li>
            <li class="navigation--share__github footer">
-               <a href="#" class="navigation--share github footer" target="blank" rel="nofollow noreferrer">
+               <a href="https://github.com/thedailytexan" class="navigation--share github footer" target="blank" rel="noopener noreferrer">
                    <i class="fa fa-github" aria-hidden="true"></i>
                </a>
            </li>

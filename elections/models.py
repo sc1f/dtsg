@@ -5,6 +5,8 @@ from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFit
 from tinymce import models as tinymce_models
 
+# TODO validate models
+
 class Election(models.Model):
     name = models.CharField(default="Election",max_length=200)
     year = models.PositiveSmallIntegerField(primary_key=True)

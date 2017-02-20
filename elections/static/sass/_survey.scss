@@ -80,4 +80,9 @@ div.survey--container {
     border-width: 1px !important;
     border-top: 1px solid lightgray;
   }
+  .errorlist > li {
+    color: red;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
 }

@@ -18,6 +18,10 @@
   -o-transition: all 0.4s;
   transition: all 0.4s;
 
+  &:focus, &:active {
+    color: #fff !important;
+  }
+
   &:last-of-type {
     margin-bottom: 1em;
   }

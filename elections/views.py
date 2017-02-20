@@ -40,6 +40,8 @@ def candidates(request, year, race_id, position_id):
     candidates = selected_position.candidate_set.filter(published=True).order_by('name')
     candidates_count = candidates.count()
 
+    # TODO validate counts
+
 
     return render(request, 'elections/candidates.html', {
         'year': year,
@@ -58,6 +60,9 @@ def add_candidate(request, year):
             cand.winner = False
             cand.save()
             return render(request,'elections/survey_submitsuccess.html',{})
+        else:
+            err = form.errors.as_data()
+            return render(request, 'elections/survey.html', {'form': form, 'year': year, 'error': err})
     else:
         form = CandidateForm()
         #form.fields['position'].queryset = Position.objects.filter(race_id = form.fields['race'].id)

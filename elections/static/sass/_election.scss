@@ -24,6 +24,10 @@
     color: #fff !important;
   }
 
+  &:focus, &:active {
+    color: #fff !important;
+  }
+
   &:first-of-type {
     background: $theme-primary;
 
