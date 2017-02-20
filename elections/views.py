@@ -11,7 +11,7 @@ def election_index(request):
 
 def races(request, year):
     selected_election = Election.objects.get(year=year)
-    races = Race.objects.filter(year=selected_election.year).all().order_by('id').annotate(num_positions=Count('position'))
+    races = Race.objects.filter(year=selected_election.year).all().order_by('id').annotate(num_positions=Count('position')).order_by('order')
 
     return render(request, 'elections/races.html', {
         'election': selected_election,
