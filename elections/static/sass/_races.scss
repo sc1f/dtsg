@@ -33,7 +33,7 @@
     width: 20em;
   }
 
-  &:hover {
+  &:hover, &:click {
     background: $theme-darkgray !important;
     color: #fff !important;
   }
