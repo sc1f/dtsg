@@ -114,11 +114,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# Media files
-
-MEDIA_URL = '/assets/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'assets')
-
 # SASS Preprocessing
 SASS_PROCESSOR_ENABLED = True
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'elections/static/')
@@ -156,3 +151,9 @@ BLEACH_STRIP_TAGS = True
 
 # Strip HTML comments, or leave them in.
 BLEACH_STRIP_COMMENTS = True
+
+# Media files
+
+#MEDIA_URL = '/assets/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'assets')
+

@@ -56,14 +56,7 @@ class Candidate(models.Model):
     position = models.ForeignKey('Position', on_delete=models.CASCADE,)
     major = models.CharField(max_length=200, unique=False)
     year = models.CharField(max_length=200, unique=False)
-    image = ProcessedImageField(upload_to='images/%Y/candidates/',
-                           processors=[ResizeToFit(500)],
-                           format='JPEG',
-                           options={
-                               'quality': 100
-                           },
-                           blank=True,
-                           null = True)
+    image = models.ImageField(upload_to='images/%Y/candidates/',blank=True,null = True)
     image_credit = models.CharField(max_length=200, blank=True, unique=False)
 
     #information
