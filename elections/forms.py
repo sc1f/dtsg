@@ -21,7 +21,7 @@ class CandidateForm(ModelForm):
             'twitter': _("Twitter (optional)")
         }
         help_texts = {
-            'image': _('Try to upload a square image, or make sure your face is near the center of the frame.'),
+            'image': _('IMAGE MUST BE LESS THAN 4MB, or you will receive an error. If you receive an error, compress your image and reupload it. Try to upload a square image, or make sure your face is near the center of the frame.'),
             'facebook': _("Full URL please."),
             'twitter': _("Full URL please.")
         }
