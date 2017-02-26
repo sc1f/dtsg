@@ -25,9 +25,10 @@ div.survey--container {
     color: $theme-darkgray;
     font-size: 1.25rem;
     @include box_shadow(1);
+    height: 100%;
     border: 1px solid lightgray !important;
     border-radius: 0 !important;
-    padding: 1.5rem .5rem;
+    padding: 1rem .5rem;
 
     -webkit-transition: all 0.4s;
     -moz-transition: all 0.4s;
