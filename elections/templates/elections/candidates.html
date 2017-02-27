@@ -18,7 +18,7 @@
         {% else %}
             <p class="index--subhead index--subhead__large">There are <span class="positions--candidates">{{ candidates_count }} candidates</span> for this position.</p>
         {% endif %}
-        <h3 class="index--subhead">Candidates who have not submitted their information to The Daily Texan are not included in this database.</h3>
+        <p class="index--subhead index--subhead__large">Candidates who have not submitted their information to The Daily Texan are not included in this database.</p>
         {% for candidate in Candidates %}
         {% if candidate.winner == True %}
         <div class="candidate--item card flex-container flex-dir-column" id="{{ candidate.name | slugify }}" data-magellan-target="{{ candidate.name | slugify }}">
