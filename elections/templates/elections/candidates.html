@@ -18,6 +18,7 @@
         {% else %}
             <p class="index--subhead index--subhead__large">There are <span class="positions--candidates">{{ candidates_count }} candidates</span> for this position.</p>
         {% endif %}
+        <h3 class="index--subhead">Candidates who have not submitted their information to The Daily Texan are not included in this database.</h3>
         {% for candidate in Candidates %}
         {% if candidate.winner == True %}
         <div class="candidate--item card flex-container flex-dir-column" id="{{ candidate.name | slugify }}" data-magellan-target="{{ candidate.name | slugify }}">
@@ -41,12 +42,10 @@
                 </div>
             </div>
             <div class="card-section">
-                {% autoescape off %}
                 <h5 class="candidate--item__heading">Statement</h5>
-                <p class="candidate--item__copy">{{ candidate.statement | linebreaks | safe}}</p>
+                <p class="candidate--item__copy">{{ candidate.statement | linebreaks}}</p>
                 <h5 class="candidate--item__heading">Platform</h5>
-                <p class="candidate--item__copy">{{ candidate.platform | linebreaks | safe}}</p>
-                {% endautoescape %}
+                <p class="candidate--item__copy">{{ candidate.platform | linebreaks}}</p>
             </div>
             <div class="card-section candidate--item__social flex-container flex-dir-row">
                 {% if candidate.facebook %}
@@ -92,12 +91,10 @@
                 </div>
 
                 <div class="card-section">
-                    {% autoescape off %}
                     <h5 class="candidate--item__heading">Statement</h5>
-                    <p class="candidate--item__copy">{{ candidate.statement | linebreaks | bleach}}</p>
+                    <p class="candidate--item__copy">{{ candidate.statement | linebreaks}}</p>
                     <h5 class="candidate--item__heading">Platform</h5>
-                    <p class="candidate--item__copy">{{ candidate.platform | linebreaks | bleach}}</p>
-                    {% endautoescape %}
+                    <p class="candidate--item__copy">{{ candidate.platform | linebreaks}}</p>
                 </div>
                 <div class="card-section candidate--item__social flex-container flex-dir-row">
                     {% if candidate.facebook %}

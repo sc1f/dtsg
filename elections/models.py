@@ -48,7 +48,7 @@ class Position(models.Model):
         return self.name
 
 class PositionAdmin(admin.ModelAdmin):
-    list_display = ('name', 'position_year', 'race', 'positions_available', 'order')
+    list_display = ('id', 'name', 'position_year', 'race', 'positions_available', 'order')
     list_filter = ('race', 'position_year')
 
 class Candidate(models.Model):
@@ -60,8 +60,8 @@ class Candidate(models.Model):
     image_credit = models.CharField(max_length=200, blank=True, unique=False)
 
     #information
-    statement = tinymce_models.HTMLField()
-    platform = tinymce_models.HTMLField()
+    statement = models.TextField()
+    platform = models.TextField()
 
     #contact
     website = models.URLField(blank=True)

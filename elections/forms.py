@@ -25,7 +25,3 @@ class CandidateForm(ModelForm):
             'facebook': _("Full URL please."),
             'twitter': _("Full URL please.")
         }
-        widgets = {
-            'statement': TinyMCE(attrs={'cols': 80, 'rows': 20}),
-            'platform': TinyMCE(attrs={'cols': 80, 'rows': 20})
-        }

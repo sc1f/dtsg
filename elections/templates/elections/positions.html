@@ -14,6 +14,7 @@
         {% else %}
         <p class="index--subhead index--subhead__large">There are <span class="positions--candidates">{{ positions_count }} positions</span> in this race.</p>
         {% endif %}
+        <h3 class="index--subhead">Candidates who have not submitted their information to The Daily Texan are not included in this database.</h3>
         <div class="index-container positions flex-container flex-dir-column">
             {% for position in Positions %}
             <div class="position--item flex-container flex-dir-column card" >
