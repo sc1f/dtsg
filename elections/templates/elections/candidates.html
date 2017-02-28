@@ -28,7 +28,7 @@
                     <div class="candidate--item__image container" style="background-image: url({{ candidate.image.url }});-webkit-background-size: cover;background-size: cover;background-repeat: no-repeat;"></div>
                     <p class="candidate--image__credit winner">Photo Credit: {{ candidate.image_credit }}</p>
                 {% else %}
-                    <div class="candidate--item__image noimg flex-container flex-dir-column"><i class="fa fa-user fa-4x" aria-hidden="true"></i></div>
+                    <div class="candidate--item__image noimg container flex-container flex-dir-column"><i class="fa fa-user fa-4x" aria-hidden="true"></i></div>
                     {% endif %}
                 </div>
                 <div class="candidate--item__details flex-container flex-dir-column winner">
@@ -75,7 +75,7 @@
                         <div class="candidate--item__image container" style="background-image: url({{ candidate.image.url }});-webkit-background-size: cover;background-size: cover;background-repeat: no-repeat;"></div>
                         <p class="candidate--image__credit">Photo Credit: {{ candidate.image_credit }}</p>
                         {% else %}
-                        <div class="candidate--item__image noimg flex-container flex-dir-column"><i class="fa fa-user fa-4x" aria-hidden="true"></i></div>
+                        <div class="candidate--item__image noimg container flex-container flex-dir-column"><i class="fa fa-user fa-4x" aria-hidden="true"></i></div>
                         {% endif %}
                     </div>
                     <div class="candidate--item__details flex-container flex-dir-column">
