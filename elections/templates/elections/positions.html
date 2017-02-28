@@ -23,6 +23,7 @@
                 <a href="/elections/{{ year }}/{{ race.id }}&{{ position.id }}" class="position--item__name">{{ position.name }}</a>
                 {% else %}
                 <p class="position--item__name">{{ position.name }}</p>
+                <p class="index--copy">We currently don't have information for any candidates in this race. If you are a candidate, <b><a href="/election/2017/add_candidate">submit your information</a></b>!</p>
                 {% endif %}
                 {% if position.description %}
                 <p class="index--copy">{{ position.description }}</p>
@@ -55,12 +56,6 @@
             </div>
             {% endfor %}
         </div>
-        <p class="index--subhead index--subhead__large">Positions without any candidates running:</p>
-        <ul>
-            {% for position in Empty_Positions %}
-            <li>{{ position.name }}</li>
-            {% endfor %}
-        </ul>
     </div>
 </div>
 <div class="navigation--breadcrumbs__container flex-container">

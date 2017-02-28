@@ -21,16 +21,15 @@ def races(request, year):
 def positions(request, year, race_id):
     selected_election = Election.objects.get(year=year)
     selected_race = Race.objects.get(id=race_id)
-    positions = selected_race.position_set.all().filter(candidate__published=True).annotate(num_candidates=Count('candidate')).order_by('order')
+    # .filter(candidate__published=True)
+    positions = selected_race.position_set.all().annotate(num_candidates=Count('candidate')).order_by('order')
     positions_count = selected_race.position_set.all().count()
-    positions_empty = selected_race.position_set.all().filter(candidate__isnull=True).annotate(num_candidates=Count('candidate')).order_by('order')
 
     return render(request, 'elections/positions.html', {
         'election': selected_election,
         'race': selected_race,
         'Positions': positions,
         'positions_count': positions_count,
-        'Empty_Positions': positions_empty,
         'year': year
     })
 
