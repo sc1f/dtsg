@@ -29,8 +29,8 @@
                     <p class="candidate--image__credit winner">Photo Credit: {{ candidate.image_credit }}</p>
                 {% else %}
                     <div class="candidate--item__image noimg flex-container flex-dir-column"><i class="fa fa-user fa-4x" aria-hidden="true"></i></div>
+                    {% endif %}
                 </div>
-                {% endif %}
                 </div>
                 <div class="candidate--item__details flex-container flex-dir-column winner">
                     <h3 class="candidate--item__name winner">Winner: {{ candidate.name }}</h3>
@@ -77,8 +77,8 @@
                         <p class="candidate--image__credit">Photo Credit: {{ candidate.image_credit }}</p>
                         {% else %}
                         <div class="candidate--item__image noimg flex-container flex-dir-column"><i class="fa fa-user fa-4x" aria-hidden="true"></i></div>
+                        {% endif %}
                     </div>
-                    {% endif %}
                     </div>
                     <div class="candidate--item__details flex-container flex-dir-column">
                         <h3 class="candidate--item__name">{{ candidate.name }}</h3>
