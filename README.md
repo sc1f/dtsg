@@ -66,6 +66,20 @@ import os
  DEBUG = True # CHANGE THIS TO False IN PRODUCTION!
  
  ALLOWED_HOSTS = [] # IF DEBUG = False, ADD VALUES TO THIS LIST
+ 
+ USE_S3 = True # OR FALSE
+ AWS_ACCESS_KEY_ID = AWS KEY
+ AWS_SECRET_ACCESS_KEY = AWS SECRET
+ 
+ AWS_STORAGE_BUCKET_NAME = BUCKET NAME
+ AWS_QUERYSTRING_AUTH = False # SET TRUE IF YOU NEED QUERYSTRING
+ 
+ S3_URL = 'https://%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+ 
+ if USE_S3:
+     DEFAULT_FILE_STORAGE = 'dt_sg.s3utils.MediaRootS3BotoStorage'
+     MEDIA_URL = S3_URL + '/assets/' 
+
 ```
 
 `settings_secret.py` is not commited to VCS by default, so you must manually set this up on initial setup.
@@ -75,6 +89,8 @@ From the command line, run `python3 manage.py createsuperuser` to create a user 
 Make sure your virtualenv is booted, and from the root directory of the project run `python3 manage.py migrate` to make sure the database is up to date, and then run `python3 manage.py runserver`. 
 
 Navigate to `localhost:8000`, and you should see the site. `localhost:8000/admin` will allow you to log in to the backend and add election data.
+
+We use [s3-tinify](https://github.com/sc1f/s3-tinify), a module built by [Jun Tan](https://github.com/sc1f) to access the S3 bucket and compress/overwrite image files for production. We currently do not have backup buckets in place, but will consider scaling to backups if needed.
 
 ## Deployment
 
@@ -89,6 +105,7 @@ Our production server uses Gunicorn and Nginx, as seen in [this very helpful tut
 * VirtualEnv
 * Gunicorn
 * Nginx
+* AWS S3
 
 ## Authors
 
