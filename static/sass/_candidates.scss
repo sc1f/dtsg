@@ -1,0 +1,182 @@
+// styles for candidate listings
+
+// navigation
+
+.candidate--magellan__container {
+  display: none;
+  @include breakpoint (large) {
+    display: block;
+  }
+
+}
+
+.candidate--magellan__header {
+  color: $dark-gray;
+  font-size: .9rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.candidate--magellan__active {
+  background-color: $theme-secondary;
+  color: #fff;
+}
+
+// headings
+
+.candidate--position {
+  font-size: 4em;
+  font-weight: bold;
+}
+
+// individual candidate items
+
+.candidate--item {
+  border: 0;
+  @include box_shadow(1);
+  width: 100%;
+}
+
+// header div
+
+.candidate--item__meta {
+  background: $theme-lightgray;
+  align-content: center;
+  align-items: center;
+  justify-content: flex-start;
+
+  @include breakpoint(medium) {
+    flex-direction: row;
+  }
+
+  &.winner {
+    background: $theme-primary;
+  }
+}
+
+// header information
+
+.candidate--item__details {
+  &.winner {
+    color: #fff !important;
+  }
+  @include breakpoint(medium) {
+    align-self: flex-start;
+    margin-left: 2em;
+  }
+}
+
+.candidate--item__name {
+  color: $theme-primary;
+  font-size: 2rem;
+  font-weight: bold;
+
+  @include breakpoint(medium) {
+    font-size: 2.25rem;
+    text-align: center;
+  }
+
+  &.winner {
+    color: #fff !important;
+  }
+}
+
+.candidate--item__metainfo {
+  font-size: 1.1rem;
+  margin-bottom: .25em !important;
+}
+
+//typography
+
+.candidate--item__heading {
+  font-weight: bold;
+}
+
+div.card-section {
+  p {
+    padding: 0 !important;
+  }
+}
+
+//images
+
+.candidate--item__imgcontain {
+  justify-content: center;
+}
+
+.candidate--item__image {
+  border: 3px solid #fff;
+  margin-bottom: 1em;
+  @include breakpoint(medium) {
+    margin-bottom: 0;
+  }
+
+  &.img {
+    min-height: 100%;
+    min-width: 100%;
+  }
+  
+  // no image
+  
+  &.noimg {
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: $theme-tertiary;
+    
+    i {
+      color: #fff;
+    }
+  }
+
+  &.container {
+    border-radius: 50%;
+    height: 12em;
+    width: 12em;
+    overflow: hidden;
+  }
+}
+
+.candidate--image__credit {
+  font-size: .9rem;
+  text-align: left;
+  margin-top: .5rem;
+  text-align: center;
+  &.winner {
+    color: #fff !important;
+  }
+}
+
+// social/website
+
+.candidate--social__item {
+  background: $theme-lightgray;
+  height: 3em;
+  width: 3em;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-right: .5em;
+
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  
+  &:hover {
+    background: $theme-darkgray;
+    color: #fff;
+  }
+}
+
+// card content
+
+.card-section {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+

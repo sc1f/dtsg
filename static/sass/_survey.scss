@@ -1,0 +1,89 @@
+.column.survey {
+  padding: 0 1rem;
+
+  @include breakpoint(medium) {
+    padding: inherit;
+  }
+}
+.survey--heading {
+  color: $theme-primary;
+  line-height: 1.3;
+  margin-bottom: 0;
+}
+.survey--subhead {
+  font-size: 1.25rem;
+  font-style: italic;
+}
+div.survey--container {
+  label {
+    color: $theme-darkgray;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  input, textarea {
+    background: #fff;
+    color: $theme-darkgray;
+    font-size: 1.25rem;
+    @include box_shadow(1);
+    height: 100%;
+    border: 1px solid lightgray !important;
+    border-radius: 0 !important;
+    padding: 1rem .5rem;
+
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+
+    &:active, &:focus {
+      border: 1px solid lightgray !important;
+      @include box_shadow(3);
+    }
+  }
+  input[type="file"] {
+    font-size: 1.25rem;
+  }
+  select {
+    @include box_shadow(1);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid lightgray !important;
+    color: $theme-darkgray;
+    height: auto;
+    padding: 1rem .5rem;
+    font-size: 1.25rem;
+    background-position: right .5rem center;
+
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+
+    &:active, &:focus {
+      @include box_shadow(3);
+    }
+  }
+  textarea {
+    font-family: Helvetica, Arial, sans-serif !important;
+    padding: .5rem;
+  }
+  span.helptext {
+    font-style: italic;
+  }
+  div.mce-tinymce {
+    border: 1px solid lightgray !important;
+    @include box_shadow(1);
+  }
+  div.mce-container.mce-menubar.mce-toolbar.mce-stack-layout-item.mce-first {
+    border-width: 1px !important;
+    border-top: 1px solid lightgray;
+  }
+  .errorlist > li {
+    color: red;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+}

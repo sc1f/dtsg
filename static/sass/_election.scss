@@ -1,0 +1,83 @@
+// styles for the election index, race index, and individual election pages
+
+/* ---------
+  ELECTIONS INDEX
+--------- */
+
+.elections--item {
+  align-items: center;
+  justify-content: center;
+  background: $theme-tertiary;
+  height: 18em;
+  width: 18em;
+  color: #fff;
+  text-align: center;
+
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  
+  &:hover {
+    background: $theme-darkgray;
+    color: #fff !important;
+  }
+
+  &:focus, &:active {
+    color: #fff !important;
+  }
+
+  &:first-of-type {
+    background: $theme-primary;
+
+    &:hover {
+      background: $theme-darkgray;
+      color: #fff !important;
+    }
+  }
+
+  &:last-of-type {
+    margin-bottom: 1em;
+  }
+
+  @include breakpoint(medium) {
+    margin-right: 1em;
+    margin-bottom: 1em;
+    height: 20em;
+    width: 20em;
+  }
+}
+
+.elections--item__year {
+  font-size: 4em;
+  font-weight: bold;
+}
+
+.elections--item__date {
+  font-size: 1.5em;
+}
+
+
+.elections--container {
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1em;
+  width: 100%;
+
+  @include breakpoint(medium) {
+    align-content: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding: 1em 1em 1em 0;
+  }
+}
+
+.elections--index__date {
+  color: $theme-secondary;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-style: normal;
+  margin-bottom: .25rem !important;
+}
