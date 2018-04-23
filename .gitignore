@@ -1,3 +1,7 @@
+staticfiles
+.env
+dtsg_dump
+/share
 /elections/static/css/main.css
 /elections/static/css/main.css.map
 .idea

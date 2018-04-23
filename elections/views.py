@@ -9,8 +9,8 @@ def election_index(request):
         'Elections': elections
     })
 
-def races(request, year):
-    selected_election = Election.objects.get(year=year)
+def races(request):
+    selected_election = Election.objects.get(year=2017)
     races = Race.objects.filter(year=selected_election.year).all().order_by('id').annotate(num_positions=Count('position')).order_by('order')
 
     return render(request, 'elections/races.html', {

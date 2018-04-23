@@ -19,7 +19,8 @@
   transition: all 0.4s;
 
   &:focus, &:active {
-    color: #fff !important;
+    background: $theme-darkgray !important;
+    color: $theme-darkgray !important;
   }
 
   &:last-of-type {
@@ -55,6 +56,7 @@
 .races--item:nth-child(5){
   background: lighten(#305BBF, 15%);
 }
+
 .races--item__heading {
   font-size: 2.5em;
   font-weight: bold;

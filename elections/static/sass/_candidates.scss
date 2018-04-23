@@ -72,6 +72,7 @@
 
   @include breakpoint(medium) {
     font-size: 2.25rem;
+    text-align: center;
   }
 
   &.winner {
@@ -103,6 +104,7 @@ div.card-section {
 }
 
 .candidate--item__image {
+  border: 3px solid #fff;
   margin-bottom: 1em;
   @include breakpoint(medium) {
     margin-bottom: 0;

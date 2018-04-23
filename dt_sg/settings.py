@@ -11,17 +11,23 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+# User settings are stored in .env, or loaded by Heroku into the environment
+from dotenv import load_dotenv
+load_dotenv()
 
-from .settings_secret import *
+LOCAL = os.environ["LOCAL"] == "True"
+DEBUG = os.environ["DEBUG"] == "True"
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
-
-# TODO figure out settings for remote prod
+try:
+    # make sure we either have a set host for the site, or all hosts if not set
+    site_host = os.environ["SITE_HOST"]
+    ALLOWED_HOSTS = [site_host]
+except KeyError:
+    ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -71,6 +77,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'dt_sg.wsgi.application'
 
+# Databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ["DATABASE_NAME"],
+        'USER': os.environ["DATABASE_USER"],
+        'PASSWORD': os.environ["DATABASE_PASSWORD"],
+        'HOST': os.environ["DATABASE_HOST"],
+        'PORT': os.environ["DATABASE_PORT"],
+        }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -106,13 +123,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
-
-STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
 
 # SASS Preprocessing
 SASS_PROCESSOR_ENABLED = True
@@ -152,8 +167,17 @@ BLEACH_STRIP_TAGS = True
 # Strip HTML comments, or leave them in.
 BLEACH_STRIP_COMMENTS = True
 
-# Media files
+# Amazon S3 + Media files
 
-#MEDIA_URL = '/assets/'
+use_s3 = os.environ["USE_S3"]
+
+if use_s3:
+    s3_url = "https://" + os.environ["AWS_S3_BUCKET_NAME"] + ".s3.amazonaws.com"
+    MEDIA_URL = s3_url + '/assets/'
+    AWS_S3_BUCKET_AUTH = False
+    AWS_S3_MAX_AGE_SECONDS = 60 * 60 * 24 * 365
+else:
+    MEDIA_URL = '/assets/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'assets')
 

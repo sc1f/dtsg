@@ -37,6 +37,9 @@ After installing the requirements above, set up a local Postgres database (instr
 
 6: `ctrl-D` out of the psql shell.
 
+### .env file
+Using `.env.example`, create your own `.env` file and include the appropriate credentials inside it.
+
 ### **Go into `./dt_sg/` and create a file named `settings_secret.py`.**
 **This is really important! Without `settings_secret`, the project won't run.**
 

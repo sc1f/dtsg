@@ -20,7 +20,7 @@
             <div class="position--item flex-container flex-dir-column card" >
                 <div class="position--item__maininfo flex-container flex-dir-column">
                 {% if position.num_candidates > 0 %}
-                <a href="/elections/{{ year }}/{{ race.id }}&{{ position.id }}" class="position--item__name">{{ position.name }}</a>
+                <a href="/elections/{{ year }}/{{ race.id }}/{{ position.id }}" class="position--item__name">{{ position.name }}</a>
                 {% else %}
                 <p class="position--item__name">{{ position.name }}</p>
                 <p class="index--copy">We currently don't have information for any candidates in this race. If you are a candidate, <b><a href="/elections/2017/add_candidate">submit your information</a></b>!</p>

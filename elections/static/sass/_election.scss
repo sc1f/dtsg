@@ -19,7 +19,7 @@
   -o-transition: all 0.4s;
   transition: all 0.4s;
   
-  &:hover, &:click {
+  &:hover {
     background: $theme-darkgray;
     color: #fff !important;
   }
