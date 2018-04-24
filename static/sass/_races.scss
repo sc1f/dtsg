@@ -20,7 +20,7 @@
 
   &:focus, &:active {
     background: $theme-darkgray !important;
-    color: $theme-darkgray !important;
+    color: #fff !important;
   }
 
   &:last-of-type {
@@ -34,7 +34,7 @@
     width: 20em;
   }
 
-  &:hover, &:click {
+  &:hover {
     background: $theme-darkgray !important;
     color: #fff !important;
   }
